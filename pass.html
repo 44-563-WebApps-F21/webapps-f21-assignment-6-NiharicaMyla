@@ -22,17 +22,18 @@
 
 <script> 
 
-function resolveForm (){
+function processPhrase (){
+    var correct=0;
+    var wrong=0;
     console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
-    
+    correct = document.getElementById("form1_age").value
+    wrong = document.getElementById("form1_phrase").value
+    confirmed = confirm("Are these the values? "+correct+" and "+wrong)
     out = document.getElementById("result")
     if(confirmed){
-        out.innerHTML = "Values were confirmed"
+        out.innerHTML = "Access allowed"
     } else {
-        out.innerHTML = "Values were not confirmed"
+        out.innerHTML = "Access denied"
     }
 }
 </script>
