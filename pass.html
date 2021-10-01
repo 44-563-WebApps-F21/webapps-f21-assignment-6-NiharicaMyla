@@ -9,10 +9,10 @@
 
 <form>
     <label for="form1_phrase">Enter the secret phrase</label>
-    <input type ="password" id="form1_phrase" name="form1_phrase" value="Let me in" min=10 max=50 step=2 value=30> <br>
+    <input type ="password" id="form1_phrase" name="form1_phrase" min=10 max=50 step=2 value="let me in"> <br>
 
-    <label for="">Enter a phrase </label>
-    <input type ="text" id="form1_phrase" name="form1_phrase" autofocus> <br>
+    <label for="form1_check">Enter a phrase </label>
+    <input type ="text" id="form1_check" name="form1_check" autofocus> <br>
 
     <input type="button" onclick="processPhrase()" value="Check the phrase">
 </form>
@@ -21,13 +21,13 @@
 <p id="result">This text will be replaced </p>
 
 <script> 
-
-function processPhrase (){
-    var correct=0;
+ var correct=0;
     var wrong=0;
+function processPhrase (){
+   
     console.log("Getting form values")
     correct = document.getElementById("form1_phrase").value
-    wrong = document.getElementById("form1_phrase").value
+    wrong = document.getElementById("form1_check").value
     confirmed = confirm("Are these the values? "+correct+" and "+wrong)
     out = document.getElementById("result")
     if(confirmed){
