@@ -9,7 +9,7 @@
 
 <form>
     <label for="form1_phrase">Enter the secret phrase</label>
-    <input type ="password" id="form1_phrase" name="form1_phrase" min=10 max=50 step=2 value="let me in"> <br>
+    <input type ="password" id="form1_phrase" name="form1_phrase" min=10 max=50 step=2 value=1> <br>
 
     <label for="form1_check">Enter a phrase </label>
     <input type ="text" id="form1_check" name="form1_check" autofocus> <br>
@@ -21,17 +21,16 @@
 <p id="result">This text will be replaced </p>
 
 <script> 
- var correct=0;
-    var wrong=0;  
 function processPhrase (){
-   
+    var correct=0;
+    var wrong=0;    
     console.log("Getting form values")
     correct = document.getElementById("form1_phrase").value
     wrong = document.getElementById("form1_check").value
     confirmed = confirm("Are these the values? "+correct+" and "+wrong)
     out = document.getElementById("result")
     if(confirmed){
-        out.innerHTML = "Access allowed"
+        out.innerHTML = correct
     } else {
         out.innerHTML = "Access denied"
     }
@@ -39,13 +38,28 @@ function processPhrase (){
 </script>
 
 <div class="container">
-    <img src="moose.jpg" class="img-thumbnail col-md-2" alt="moose" width="200" height="200"> 
-    <img src="impala.jpg" class="img-thumbnail col-md-2" alt="impala" width="200" height="200"> 
-    <img src="yearling.jpg" class="img-thumbnail col-md-2" alt="yearling" width="200" height="200"> 
+    <img src="moose.jpg" class="img-thumbnail col-md-2" alt="moose" onclick="newImage()" width="200" height="200"> 
+    <img src="impala.jpg" class="img-thumbnail col-md-2" alt="impala" onclick="newImage()" width="200" height="200"> 
+    <img src="yearling.jpg" class="img-thumbnail col-md-2" alt="yearling" onclick="newImage()" width="200" height="200"> 
   </div>
+<script>
+    var usingImage=1;
+    function newImage (){
 
+    }
+</script>
 
-
+let usingImage;
+switch(new usingImage.getsrc())
+case 1:
+    imagesrc = ;
+    break;
+  case 2:
+  imagesrc = "Monday";
+    break;
+  case 3:
+  imagesrc = "Tuesday";
+    break;
 
 </body>
 </html> 
