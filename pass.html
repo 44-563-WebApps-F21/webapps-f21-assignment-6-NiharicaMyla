@@ -30,7 +30,7 @@ function processPhrase (){
     confirmed = confirm("Are these the values? "+correct+" and "+wrong)
     out = document.getElementById("result")
     if(confirmed){
-        out.innerHTML = correct
+        out.innerHTML = "correct: "+ correct
     } else {
         out.innerHTML = "Access denied"
     }
