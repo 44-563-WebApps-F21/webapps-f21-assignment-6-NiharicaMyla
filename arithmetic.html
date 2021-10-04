@@ -6,32 +6,43 @@
     <title>Maths</title>
 </head>
 <h2>Niharica Myla Computes</h2>
-
+<div class="container">
+    <h3>find the power of value</h3>
 <form>
-    <label class="form-group" for="baseValue">Enter a base</label>
-    <input type ="number" id="baseValue" class="Math" value=10> <br>
+    <div class="input-group"><label for="baseValue">Enter a base: </label>
+    <input type="number" class="form-control" id="baseValue" value=10 />
+    </div>
+    <br>
+    <div class="form-group">
+    <label for="expValue">Enter an exponent: </label>
+    <input type="number" class="form-control form-check-label" id="expValue" value=2 autofocus />
+    </div>
+    <br>    
+    <div class="buttonSubmit">
+    <button class="btn btn-active " type="button" onclick="process()" >Compute
+</button>
+   </div>
+    </form>
+    <div id="result" class="form-group"></div>
+    </div>
+         
 
-    <label for="expvalue">Enter an exponent </label>
-    <input class="form-control" type ="number" id="expvalue"value=2 autofocus> <br>
-
-    <input type="button" onclick="powers()">Compute
-</form>
-
-
-<p id="result" class="form-group"> </p>
-
-<script> 
-
-function powers() {
-    base = document.getElementById("baseValue").value
-    exp = document.getElementById("expValue").value
-    resultDiv = document.getElementById("result")
-
-    for(i=1;i>=10;i++){
-        resultDiv.innerHTML = "power " + baseValue*expValue;
-    }
-}
-</script>
+<script>
+			function powers(base, exponent) {
+			var base = document.getElementById("baseValue").value;
+            var exp = document.getElementById("expValue").value;
+            var res;
+            res=PowerOFNumber(base,exp);
+            document.getElementById("res").innerHTML = res;
+            }
+            function PowerOFNumber(base,exp) {
+                var i, pow =1;
+                for(i=0; i<exp; i++){
+                    pow = pow*base;
+                }
+                return pow;
+            }
+		</script>
 
 </body>
 </html> 
