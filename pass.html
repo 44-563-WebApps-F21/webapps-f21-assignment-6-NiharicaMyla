@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Java Script</title>
-        <script>
+<title>Java Script</title>
+<script>
             var correct = 0, wrong = 0;
             function processPhrase() {
     
@@ -54,3 +54,27 @@ phrase</button>
 <img src="impala.jpg" class="img-thumbnail col-md-2" alt="impala" onclick="newImage()" width="200" height="200"> 
 <img src="yearling.jpg" class="img-thumbnail col-md-2" alt="yearling" onclick="newImage()" width="200" height="200"> 
 </div>
+<h2>Change images</h2>
+<img src="moose.jpg" onclick="newImage()" id="getImage" width="200" height="200">
+
+<script>
+ function newImage() {
+    var usingImage=1;
+var img=parseInt(document.getElementById('getImage').value);
+switch(usingImage) {
+case 1:
+usingImage.src="moose.jpg";
+usingImage=2;
+break;
+case 2:
+usingImage.src="impala.jpg";
+usingImage=3;
+break;
+case 3:
+usingImage.src="yearling.jpg";
+usingImage=1;
+break;
+}
+        }
+</script>
+
