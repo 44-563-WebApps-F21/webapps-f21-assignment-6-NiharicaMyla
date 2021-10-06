@@ -15,34 +15,33 @@
     <br>
     <div class="form-group">
     <label for="expValue">Enter an exponent: </label>
-    <input type="number" class="form-control form-check-label" id="expValue" value=2 autofocus />
+    <input type="number" id="expValue" value=2 autofocus />
     </div>
     <br>    
     <div class="buttonSubmit">
-    <button class="btn btn-active " type="button" onclick="process()" >Compute
+    <button class="btn btn-active " type="button" onclick="powers()" >Compute
 </button>
    </div>
     </form>
-    <div id="result" class="form-group"></div>
+    <div id="result" class="form-group">Result</div>
     </div>
          
-
 <script>
-			function powers(base, exponent) {
-			var base = document.getElementById("baseValue").value;
-            var exp = document.getElementById("expValue").value;
-            var res;
-            res=PowerOFNumber(base,exp);
-            document.getElementById("res").innerHTML = res;
-            }
-            function PowerOFNumber(base,exp) {
-                var i, pow =1;
-                for(i=0; i<exp; i++){
-                    pow = pow*base;
-                }
-                return pow;
-            }
-		</script>
+    function powers() {
+        var base = document.getElementById("power").value;
+      var exponent = document.getElementById("exp").value;
+      var result = 1;
+				if(exponent == undefined) {
+					exponent = 2;
+				}
+				for(var i=1; i<=exponent; i++) {
+					result = result * base;
+				}
+				return result;
+			}
 
+			console.log(power(2,4));
+			console.log(power(5));
+</script>
 </body>
 </html> 
