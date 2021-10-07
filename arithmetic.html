@@ -6,42 +6,133 @@
     <title>Maths</title>
 </head>
 <h2>Niharica Myla Computes</h2>
+<h3>find the power of value</h3>
 <div class="container">
-    <h3>find the power of value</h3>
-<form>
-    <div class="input-group"><label for="baseValue">Enter a base: </label>
-    <input type="number" class="form-control" id="baseValue" value=10 />
-    </div>
-    <br>
-    <div class="form-group">
-    <label for="expValue">Enter an exponent: </label>
-    <input type="number" id="expValue" value=2 autofocus />
-    </div>
-    <br>    
-    <div class="buttonSubmit">
-    <button class="btn btn-active " type="button" onclick="powers()" >Compute
-</button>
-   </div>
+    <form>
+        <div class="form-group">
+            <label class="control-label" for="base">Enter a base: </label>
+            <input class="form-control" type="number" id="base" name="base" placeholder="enter base" value=10> <br>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="exponent">Enter an exponent: </label>
+            <input class="form-control" type="number" id="exponent" name="exponent" value=2> <br>
+        </div>
     </form>
-    <div id="result" class="form-group">Result</div>
+    <button class="btn btn-primary" onclick="powers()">
+        Compute
+    </button>
+
+</div>
+<div class="container">
+    <div class="form-group">
+        <label class="control-label" id="label"></label>
+        <span id="result"></span>
     </div>
-         
+</div>
+<br>
+<div class="container">
+    <h3>Calculations</h3>
+    <form id="formView">
+         <div class="form-group">
+            <input type="radio" id="chk_add" name="radio" value="plus">
+            <label for="chk_add">+</label>
+        </div>
+        <div class="form-group">
+            <input type="radio" id="chk_sub" name="radio" value="minus">
+            <label for="chk_sub">-</label>
+        </div>
+        <div class="form-group">
+            <input type="radio" id="chk_mul" name="radio" value="times">
+            <label for="chk_mul">*</label>
+        </div>
+        <div class="form-group">
+            <input type="radio" id="chk_div" name="radio" value="divide">
+            <label for="chk_div">/</label>
+        </div> 
+    </form>
+    <div class="container">
+        <div class="form-group">
+            <label class="control-label" id="lab"></label>
+            <span id="results2"></span>
+        </div>
+    </div>
+</div>
+     
 <script>
     function powers() {
-        var base = document.getElementById("power").value;
-      var exponent = document.getElementById("exp").value;
-      var result = 1;
-				if(exponent == undefined) {
-					exponent = 2;
-				}
-				for(var i=1; i<=exponent; i++) {
-					result = result * base;
-				}
-				return result;
-			}
+        let base = document.getElementById('base').value;
+            let exponent = document.getElementById('exponent').value;
+            let resValue = 1;
+            document.getElementById('label').innerHTML = "Powers of " + base + " are: ";
+            let finalarray = [];
+            for (i = 1; i <= exponent; i++) {
+                finalarray.push(base ** i);
+            }
+            document.getElementById('result').innerHTML = " " + finalarray.join(", ") + " (Exponent was " + (exponent) + ")"
+        }
 
-			console.log(power(2,4));
-			console.log(power(5));
+        function processRadio(element) {
+            let base = document.getElementById('base').value;
+            let exponent = document.getElementById('exponent').value;
+            let value = element.id;
+            let result = 0;
+            switch (element.id) {
+                case 'chk_add':
+                    {
+                        result = parseInt(base) + parseInt(exponent);
+                        break;
+                    }
+                case 'chk_sub':
+                    {
+                        result = parseInt(base) - parseInt(exponent);
+                        break;
+                    }
+                case 'chk_mul':
+                    {
+                        result = parseInt(base) * parseInt(exponent);
+                        break;
+                    }
+                case 'chk_div':
+                    {
+                        result = parseInt(base) / parseInt(exponent);
+                        break;
+                    }
+            }
+
+            document.getElementById('lab').innerHTML = base + " " + element.value + " " + exponent + " : ";
+            let finalarray = [];
+            for (i = 1; i <= exponent; i++) {
+                finalarray.push(base ** i);
+            }
+            document.getElementById('results2').innerHTML = (result);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            let operationsArray = [{
+                id: 'chk_add',
+                value: 'plus',
+                symbol: '+'
+            }, {
+                id: 'chk_sub',
+                value: 'minus',
+                symbol: '-'
+            }, {
+                id: 'chk_mul',
+                value: 'times',
+                symbol: '*'
+            }, {
+                id: 'chk_div',
+                value: 'divide',
+                symbol: '/'
+            }]
+            let resultView = "";
+            operationsArray.forEach(element => {
+                resultView += "<div class=\"form-group\"><input type=\"radio\" onclick=\"processRadio(" + element.id + ")\" class=\"form-check-input\" id=\"" + element.id + "\" name=\"radio\" value=\"" + element.value + "\"><label for=\"" + element.id + "\">" + "&nbsp;" + element.symbol + "</label></div>"
+            });
+            document.getElementById('formView').innerHTML = resultView;
+
+        });
 </script>
 </body>
 </html> 
