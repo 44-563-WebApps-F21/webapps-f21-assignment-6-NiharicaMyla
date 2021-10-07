@@ -99,15 +99,13 @@
                         break;
                     }
             }
-
-            document.getElementById('lab').innerHTML = base + " " + element.value + " " + exponent + " : ";
+           document.getElementById('lab').innerHTML = base + " " + element.value + " " + exponent + " : ";
             let finalarray = [];
             for (i = 1; i <= exponent; i++) {
                 finalarray.push(base ** i);
             }
             document.getElementById('results2').innerHTML = (result);
         }
-
         document.addEventListener('DOMContentLoaded', function() {
             let operationsArray = [{
                 id: 'chk_add',
@@ -131,7 +129,6 @@
                 resultView += "<div class=\"form-group\"><input type=\"radio\" onclick=\"processRadio(" + element.id + ")\" class=\"form-check-input\" id=\"" + element.id + "\" name=\"radio\" value=\"" + element.value + "\"><label for=\"" + element.id + "\">" + "&nbsp;" + element.symbol + "</label></div>"
             });
             document.getElementById('formView').innerHTML = resultView;
-
         });
 </script>
 </body>
