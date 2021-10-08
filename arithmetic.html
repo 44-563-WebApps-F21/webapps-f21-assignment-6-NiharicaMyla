@@ -60,66 +60,65 @@
 </div>
      
 <script>
-    function powers() {
-        let base = document.getElementById('base').value;
-            let exponent = document.getElementById('exponent').value;
-            let resValue = 1;
-            document.getElementById('label').innerHTML = "Powers of " + base + " are: ";
-            let finalarray = [];
-            for (i = 1; i <= exponent; i++) {
-                finalarray.push(base ** i);
-            }
-            document.getElementById('result').innerHTML = " " + finalarray.join(", ") + " (Exponent was " + (exponent) + ")"
-        }
-
-        function processRadio(element) {
-            let base = document.getElementById('base').value;
-            let exponent = document.getElementById('exponent').value;
-            let value = element.id;
-            let result = 0;
-            switch (element.id) {
-                case 'chk_add':
-                    {
-                        result = parseInt(base) + parseInt(exponent);
-                        break;
-                    }
-                case 'chk_sub':
-                    {
-                        result = parseInt(base) - parseInt(exponent);
-                        break;
-                    }
-                case 'chk_mul':
-                    {
-                        result = parseInt(base) * parseInt(exponent);
-                        break;
-                    }
-                case 'chk_div':
-                    {
-                        result = parseInt(base) / parseInt(exponent);
-                        break;
-                    }
-            }
-           document.getElementById('lab').innerHTML = base + " " + element.value + " " + exponent + " : ";
-            let finalarray = [];
-            for (i = 1; i <= exponent; i++) {
-                finalarray.push(base ** i);
-            }
-            document.getElementById('results2').innerHTML = (result);
-        }
-        document.addEventListener('DOMContentLoaded', function() {
-            let operationsArray = [{
-                id: 'chk_add',
-                value: 'plus',
-                symbol: '+'
-            }, {
-                id: 'chk_sub',
-                value: 'minus',
-                symbol: '-'
-            }, {
-                id: 'chk_mul',
-                value: 'times',
-                symbol: '*'
-            }, {
+ function powers() {
+let base = document.getElementById('base').value;
+let exponent = document.getElementById('exponent').value;
+let resValue = 1;
+document.getElementById('label').innerHTML = "Powers of " + base + " are: ";
+let final = [];
+for (i = 1; i <= exponent; i++) {
+final.push(base ** i);
+}
+document.getElementById('result').innerHTML = " " + final.join(", ") + " (Exponent was " + (exponent) + ")"
+}
+function processRadio(element) {
+let base = document.getElementById('base').value;
+let exponent = document.getElementById('exponent').value;
+let value = element.id;
+let result = 0;
+switch (element.id) {
+case 'chk_add':
+{
+result = parseInt(base) + parseInt(exponent);
+break;
+}
+case 'chk_sub':
+    {
+  result = parseInt(base) - parseInt(exponent);
+break;
+ }
+     case 'chk_mul':
+    {
+    result = parseInt(base) * parseInt(exponent);
+     break;
+     }
+    case 'chk_div':
+    {
+    result = parseInt(base) / parseInt(exponent);
+   break;
+    }
+  }
+   document.getElementById('lab').innerHTML = base + " " + element.value + " " + exponent + " : ";
+   let finalarray = [];
+  for (i = 1; i <= exponent; i++) {
+  finalarray.push(base ** i);
+    }
+document.getElementById('results2').innerHTML = (result);
+    }
+ document.addEventListener('DOMContentLoaded', function() {
+let operationsArray = [{
+      id: 'chk_add',
+       value: 'plus',
+        symbol: '+'
+        }, {
+        id: 'chk_sub',
+       value: 'minus',
+       symbol: '-'
+       }, {
+        id: 'chk_mul',
+         value: 'times',
+          symbol: '*'
+           }, {
                 id: 'chk_div',
                 value: 'divide',
                 symbol: '/'
